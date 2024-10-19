@@ -1,5 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import { CookiesProvider } from "next-client-cookies/server";
+import { UserProvider } from "./context/UserContext";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -20,11 +22,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body><CookiesProvider><UserProvider>{children}</UserProvider></CookiesProvider></body>
     </html>
   );
 }
