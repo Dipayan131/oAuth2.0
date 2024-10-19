@@ -63,7 +63,7 @@ console.log(userData);
 
   // Here you can create a session or store the user data in a cookie
   const redirectUrl =
-    process.env.NEXT_PUBLIC_REDIRECT_URL || "http://localhost:3000";
+    process.env.REDIRECT_URL;
   const response = NextResponse.redirect(redirectUrl);
   response.cookies.set("userdata", JSON.stringify(userData), {
     httpOnly: false,
